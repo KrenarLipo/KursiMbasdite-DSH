@@ -11,6 +11,27 @@
 <div class="container">
   <div class="row">
     <h2>Detyra e shtepise 16/02/2021</h2>
+	<div class="col-xs-12 col-md-7">
+		<form>
+		  <div class="form-group">
+			<label for="exampleInputName">Emri</label>
+			<input type="text" class="form-control" id="exampleInputName" placeholder="Emri" required>
+		  </div>
+		  <div class="form-group">
+			<label for="exampleInputSurName">Mbiemri</label>
+			<input type="text" class="form-control" id="exampleInputSurName" placeholder="Mbiemri" required>
+		  </div>
+		  <div class="form-group">
+			<label for="age">Mosha</label>
+			<input type="number" class="form-control" id="age" placeholder="Mosha" required>
+		  </div>
+		  <button type="button" class="btn btn-primary afishoemra">Shto emrat</button>
+		</form>
+	</div>
+	<div class="col-xs-12 col-md-5">
+		<p id="tedhenat"></p>
+		<button id="shtoVendlindje" class="btn btn-primary hidden">Shto Vendlindjen</button>
+	</div>
   </div>
 </div>
 
@@ -18,5 +39,34 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script>
+	function getFormValues(){
+	    $('.afishoemra').click(function(){
+			var myname = $('#exampleInputName').val();
+			var mysurname = $('#exampleInputSurName').val();
+			var myage = $('#age').val();
+			if(myname == '' && mysurname == '' && myage.length == ''){
+				alert('All fields must be filled');
+			}else if(myname != '' && mysurname != '' && myage.length != '') {
+				document.getElementById('tedhenat').innerHTML += '' + myname + ' ' + mysurname + ' ' + myage + '';
+				$('#shtoVendlindje').removeClass('hidden');
+			}
+			
+		});
+		
+	}
+	function shtoVendlindjen(){
+		$('#shtoVendlindje').click(function(){
+			$('#tedhenat').append(' Tirane');
+			$(this).prop('disabled', true);
+		});
+	}
+	// A $( document ).ready() block.
+	$( document ).ready(function() {
+		console.log( "ready!" );
+		getFormValues();
+		shtoVendlindjen();
+	});
+</script>
 </body>
 </html>
