@@ -45,7 +45,7 @@
 			var myname = $('#exampleInputName').val();
 			var mysurname = $('#exampleInputSurName').val();
 			var myage = $('#age').val();
-			if(myname == '' && mysurname == '' && myage.length == ''){
+			if(myname == '' || mysurname == '' || myage.length == ''){
 				alert('All fields must be filled');
 			}else if(myname != '' && mysurname != '' && myage.length != '') {
 				document.getElementById('tedhenat').innerHTML += '' + myname + ' ' + mysurname + ' ' + myage + '';
