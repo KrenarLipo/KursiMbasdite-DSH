@@ -30,9 +30,9 @@
       function runScript(){
           var result = $('#numberToUse').val();
           if(result!=''){
-            var i=0;
-            while (i < result) {
-              document.getElementById('res').innerHTML += "" + i + "<br>";
+            var i=1;
+            while (i <= result) {
+              document.getElementById('res').innerHTML += "The number is: " + result + "<br>";
               i++;
             }   
           }else{
