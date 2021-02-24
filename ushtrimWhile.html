@@ -30,7 +30,11 @@
       function runScript(){
           var result = $('#numberToUse').val();
           if(result!=''){
-             document.getElementById('res').innerHTML += "" + result + "<br>";
+            var i=0;
+            while (i < result) {
+              document.getElementById('res').innerHTML += "" + i + "<br>";
+              i++;
+            }   
           }else{
             alert("Shtoni numrin");
           }
